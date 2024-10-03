@@ -1,8 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useRef} from 'react'
  import "./Home.css"
 
-import video1 from "../assets/video1.mp4";
-import video2 from "../assets/video-3.mp4";
+
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -100,6 +99,10 @@ function Home() {
           "Streamlined local logistics services to manage and distribute goods efficiently within your region, enhancing operational efficiency."
       },
     ];
+    const footerRef = useRef(null);
+    const scrollToFooter = () => {
+      footerRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
     
  const productsData = [
   {
@@ -128,36 +131,35 @@ function Home() {
 ];
  
   return (
-    <div className='bg-gradient-to-b from-[#dad7cd] to-[#ffffff]'>
+    <div className='bg-gradient-to-b from-[#ffffff] to-[#dad7cd]'>
       {/* hero section */}
     <div className=' pb-[20px] text-[#3a5a40] pt-[20px]'>
-      <h1 className='text-4xl sm:text-6xl lg:text-7xl font-unbounded text-center tracking-wide '>Great Voyages Begins Here</h1>
+      <h1 className='text-4xl sm:text-6xl lg:text-7xl font-unbounded font-bold text-center tracking-wide '>Great Voyages Begins Here</h1>
       {/* video tag */}
-       <div className="flex mt-10 justify-center px-[30px]">
-        <video
-          autoPlay
-          loop
-          muted
-          className="rounded-lg w-1/2 border border-[#3a5a40] shadow-sm shadow-[#DAD7CD] mx-2 my-4"
-        >
-          <source src={video1} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+       <div className="flex mt-10 justify-center">
+       
          <video
           autoPlay
           loop
           muted
-          className="rounded-lg w-1/2 border border-[#3a5a40] shadow-sm shadow-[#DAD7CD] mx-2 my-4"
+          className="rounded-lg w-1/2 max-sm:w-[90%] border border-[#3a5a40] shadow-sm shadow-[#DAD7CD] mx-2 my-4"
         >
-          <source src={video2} type="video/mp4" />
+          <source src="https://res.cloudinary.com/dduqbr4li/video/upload/w_720/v1727963180/video-3_mulbyt.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        
       </div>  
+      <h1 className='text-lg font-bold font-unbounded text-center mt-[30px'>Got any questions or ready to embark </h1>
+       <h1 className='text-lg font-bold font-unbounded text-center'> on your voyage with us?</h1>
+        <h1 className="text-lg font-bold font-unbounded text-center">Drop us a message!</h1>
+        <span className='flex justify-center'>
+        <button onClick={scrollToFooter} className='ring-2 ring-[#3a5a40] max-sm:w-[90%] text-[#dad7cd] bg-gradient-to-b from-[#3a5a40] to-black py-[5px] w-[250px] px-2 rounded-md'>Get started</button>
+        </span>
        
     </div>
     {/* services and products section */}
     <div className='w-full flex max-sm:flex-col justify-around px-[20px]'>
-    <div className="w-3/4 max-w-4xl mx-auto py-8 max-sm:w-full ">
+    <div className="w-1/2 max-w-4xl  py-8 max-sm:w-full ">
       
       <Slider {...settings}>
         {servicesData.map((service, index) => (
@@ -173,7 +175,7 @@ function Home() {
           </div>
         ))}
       </Slider>
-      </div>
+    </div>
       <div className=' flex flex-col justify-center ml-[10px] space-y-[5px]'>
         <h1 className='text-3xl text-[#3a5a40] font-bold max-sm:text-center'>Services</h1>
         <p className='text-lg font-normal text-[#3a5a40] max-sm:text-center'>Navigate your global trade with us</p>
@@ -189,7 +191,7 @@ function Home() {
         <Link to="/Products/"><button className='ring-2 ring-[#3a5a40] max-sm:w-full text-[#dad7cd] bg-gradient-to-b from-[#3a5a40] to-black py-[5px] w-[250px] px-2 rounded-md'>Know More</button></Link>
       </div>
       
-    <div className="w-3/4 max-w-4xl mx-auto py-8 max-sm:w-full">
+    <div className="w-1/2 max-w-4xl  py-8 max-sm:w-full">
       
       <Slider {...settings}>
         {productsData.map((service, index) => (
@@ -212,7 +214,7 @@ function Home() {
 
     
     {/* conatct */}
-    <section id="contact">
+    <section id="contact" ref={footerRef}>
     <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center font-unbounded mt-6 text-[#3a5a40]">
         INQUIRE NOW
       </h2>

@@ -66,13 +66,14 @@ const handlePhoneChange = (e) => {
   };
 
   return (
-    <div id="contact" className=" px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-[#ffffff] to-[#dad7cd] text-[#3a5a40] mt-[10px]">
+    <div className="max-w-7xl mx-auto pt-20 px-6">
+    <div id="contact" className="  container mx-auto sm:px-8 lg:px-16  text-[#3a5a40] mt-[10px]">
       {/* <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center mt-6 tracking-wide">
         Get in{" "}        
           Touch
       </h2> */}
-      <div className="flex flex-wrap justify-center w-full mx-auto">
-        <div className="p-2 w-full lg:w-1/2">
+      <div className="flex-col max-sm:flex-col justify-center md:w-[50%] container mx-auto">
+        <div className="p-2 w-full ">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Full Name Field */}
             <div>
@@ -193,9 +194,9 @@ const handlePhoneChange = (e) => {
         </div>
 
         {/* Contact Information Section */}
-        <div className="pt-12 w-full lg:w-1/2">
+        <div className="pt-12 w-full flex max-sm:flex-col ">
           <div className="flex mb-6">
-            <div className="text-[#3A5A40] mx-6 bg-neutral-900 h-10 w-10 p-2 justify-center items-center rounded-full">
+            <div className="text-[#dad7cd] mx-6 bg-[#3a5a40] h-10 w-10 p-2 justify-center items-center rounded-full">
               <Mail />
             </div>
             <div>
@@ -204,7 +205,7 @@ const handlePhoneChange = (e) => {
             </div>
           </div>
           <div className="flex mb-6">
-            <div className="text-[#3A5A40] mx-6 bg-neutral-900 h-10 w-10 p-2 justify-center items-center rounded-full">
+            <div className="text-[#dad7cd] mx-6 bg-[#3a5a40] h-10 w-10 p-2 justify-center items-center rounded-full">
               <Phone />
             </div>
             <div>
@@ -214,8 +215,9 @@ const handlePhoneChange = (e) => {
           </div>
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 
 export default Contact;
+
